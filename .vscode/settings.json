@@ -14,5 +14,6 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
-  }
+  },
+  "python.defaultInterpreterPath": ".venv/bin/python",
 }
