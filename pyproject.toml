@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "example-python-hello-world"
+version = "0.1.0"
+description = ""
+authors = ["wakuwaku3 <takushi.yokoyama@sansan.com>"]
+readme = "README.md"
+packages = [{include = "sample_lib", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+termcolor = "^2.3.0"
+black = "^23.10.0"
+isort = "^5.12.0"
+
+[tool.poetry.group.dev.dependencies]
+pyproject-flake8 = "^6.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 119
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 119
+exclude = ".venv"
