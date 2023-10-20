@@ -8,13 +8,12 @@
     "source.organizeImports": true
   },
   "mypy.enabled": true,
-  "mypy.targets": [
-    "./src"
-  ],
   "mypy.runUsingActiveInterpreter": true,
-  "mypy.debugLogging": true,
+  "flake8.path": [
+    ".venv/bin/pflake8"
+  ],
   "python.defaultInterpreterPath": ".venv/bin/python",
   "python.analysis.extraPaths": [
-    "./src/sample_lib"
+    "./src"
   ],
 }

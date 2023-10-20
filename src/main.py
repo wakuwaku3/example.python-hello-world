@@ -1,5 +1,5 @@
-from log.logger import Logger
 from greet.hello import Greeter
+from log.logger import Logger
 
 
 def main() -> None:

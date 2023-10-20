@@ -9,13 +9,13 @@ packages = [{include = "greet", from = "src"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 termcolor = "^2.3.0"
-black = "^23.10.0"
-isort = "^5.12.0"
-mypy = "^1.6.1"
 
 [tool.poetry.group.dev.dependencies]
 pyproject-flake8 = "^6.1.0"
 pylint = "^3.0.1"
+black = "^23.10.0"
+isort = "^5.12.0"
+mypy = "^1.6.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -51,3 +51,5 @@ disallow_any_decorated = true
 disallow_any_explicit = true
 disallow_any_generics = true
 disallow_subclassing_any = true
+mypy_path = "$MYPY_CONFIG_FILE_DIR/src"
+files = ["**/*.py"]

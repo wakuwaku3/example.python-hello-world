@@ -10,6 +10,7 @@
     "ms-python.flake8",
     "DavidAnson.vscode-markdownlint",
     "ms-python.pylint",
-    "kamilturek.vscode-pyproject-toml-snippets"
+    "kamilturek.vscode-pyproject-toml-snippets",
+    "ms-python.isort"
   ]
 }
