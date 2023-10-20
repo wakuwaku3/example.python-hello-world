@@ -2,18 +2,19 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.linting.lintOnSave": true,
-  "python.formatting.provider": "black",
-  "python.formatting.blackArgs": [
-    "--line-length",
-    "119"
-  ],
+  "python.formatting.provider": "none",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
+  "mypy.enabled": true,
+  "mypy.targets": [
+    "./src"
+  ],
+  "mypy.runUsingActiveInterpreter": true,
+  "mypy.debugLogging": true,
   "python.defaultInterpreterPath": ".venv/bin/python",
+  "python.analysis.extraPaths": [
+    "./src/sample_lib"
+  ],
 }

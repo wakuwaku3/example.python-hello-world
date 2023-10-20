@@ -9,10 +9,18 @@ docker を install しておくこと
 vscode の dev container で開く
 
 ```shell
-poetry install
+make install
 ```
 
 拡張機能はおススメを入れておく
+
+## コマンド
+
+Makefile を参照
+
+- ライブラリを追加する
+`poetry add termcolor`
+`poetry add -D flake8`
 
 ## 参考
 
