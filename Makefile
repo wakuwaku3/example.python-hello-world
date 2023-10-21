@@ -33,3 +33,7 @@ lint-mypy:
 .PHONY: lint-pylint
 lint-pylint:
 	poetry run pylint ./src/**
+
+.PHONY: test
+test:
+	poetry run pytest
