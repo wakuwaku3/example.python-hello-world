@@ -1,4 +1,4 @@
-name: プッシュ時フォーマットチェック
+name: Check Lint And Build
 on:
   push:
     branches:
@@ -16,39 +16,87 @@ jobs:
           python-version: '3.11'
       - run: pip install poetry
       - run: poetry install
-      - run: make lint-isort
-      - run: make lint-black
-      - run: make lint-pflake8
-      - run: make lint-mypy
-      - run: make lint-pylint
-      - run: make build
+      - name: save cache
+        uses: actions/cache/save@v3
+        with:
+          enableCrossOsArchive: true
+          path: ".venv"
+          key: venv-${{ github.sha }}
+
   lint-isort:
     runs-on: ubuntu-20.04
     needs: install
     steps:
+      - uses: actions/checkout@v4
+      - name: restore cache
+        uses: actions/cache/restore@v3
+        with:
+          enableCrossOsArchive: true
+          path: ".venv"
+          key: venv-${{ github.sha }}
       - run: make lint-isort
+
   lint-black:
     runs-on: ubuntu-20.04
     needs: install
     steps:
+      - uses: actions/checkout@v4
+      - name: restore cache
+        uses: actions/cache/restore@v3
+        with:
+          enableCrossOsArchive: true
+          path: ".venv"
+          key: venv-${{ github.sha }}
       - run: make lint-black
+
   lint-pflake8:
     runs-on: ubuntu-20.04
     needs: install
     steps:
+      - uses: actions/checkout@v4
+      - name: restore cache
+        uses: actions/cache/restore@v3
+        with:
+          enableCrossOsArchive: true
+          path: ".venv"
+          key: venv-${{ github.sha }}
       - run: make lint-pflake8
+
   lint-mypy:
     runs-on: ubuntu-20.04
     needs: install
     steps:
+      - uses: actions/checkout@v4
+      - name: restore cache
+        uses: actions/cache/restore@v3
+        with:
+          enableCrossOsArchive: true
+          path: ".venv"
+          key: venv-${{ github.sha }}
       - run: make lint-mypy
+
   lint-pylint:
     runs-on: ubuntu-20.04
     needs: install
     steps:
+      - uses: actions/checkout@v4
+      - name: restore cache
+        uses: actions/cache/restore@v3
+        with:
+          enableCrossOsArchive: true
+          path: ".venv"
+          key: venv-${{ github.sha }}
       - run: make lint-pylint
+
   build:
     runs-on: ubuntu-20.04
     needs: install
     steps:
+      - uses: actions/checkout@v4
+      - name: restore cache
+        uses: actions/cache/restore@v3
+        with:
+          enableCrossOsArchive: true
+          path: ".venv"
+          key: venv-${{ github.sha }}
       - run: make build
