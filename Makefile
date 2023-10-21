@@ -30,7 +30,6 @@ lint-pflake8:
 lint-mypy:
 	poetry run mypy
 
-
 .PHONY: lint-pylint
 lint-pylint:
 	poetry run pylint ./src/**
