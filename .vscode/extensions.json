@@ -11,6 +11,7 @@
     "DavidAnson.vscode-markdownlint",
     "ms-python.pylint",
     "kamilturek.vscode-pyproject-toml-snippets",
-    "ms-python.isort"
+    "ms-python.isort",
+    "github.vscode-github-actions"
   ]
 }

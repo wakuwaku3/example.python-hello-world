@@ -1,0 +1,54 @@
+name: プッシュ時フォーマットチェック
+on:
+  push:
+    branches:
+      - main
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  install:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'
+      - run: pip install poetry
+      - run: poetry install
+      - run: make lint-isort
+      - run: make lint-black
+      - run: make lint-pflake8
+      - run: make lint-mypy
+      - run: make lint-pylint
+      - run: make build
+  lint-isort:
+    runs-on: ubuntu-20.04
+    needs: install
+    steps:
+      - run: make lint-isort
+  lint-black:
+    runs-on: ubuntu-20.04
+    needs: install
+    steps:
+      - run: make lint-black
+  lint-pflake8:
+    runs-on: ubuntu-20.04
+    needs: install
+    steps:
+      - run: make lint-pflake8
+  lint-mypy:
+    runs-on: ubuntu-20.04
+    needs: install
+    steps:
+      - run: make lint-mypy
+  lint-pylint:
+    runs-on: ubuntu-20.04
+    needs: install
+    steps:
+      - run: make lint-pylint
+  build:
+    runs-on: ubuntu-20.04
+    needs: install
+    steps:
+      - run: make build
